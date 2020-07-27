@@ -10,10 +10,53 @@ class CartItem extends React.Component{
         }
         // either this binding here in constructor or we can use arrow functions for default binding
         // this.increaseQuantity=this.increaseQuantity.bind(this);
+
+        // this.testing();
     }
+
+    // testing () {
+    //     const promise = new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             resolve('done');
+    //         }, 5000);
+    //     })
+
+    //     promise.then(() => {
+    //         // setState acts like a synchronous call
+    //         this.setState({ qty: this.state.qty+10 });
+    //         this.setState({ qty: this.state.qty+10 });
+    //         this.setState({ qty: this.state.qty+10 });
+
+    //         console.log('state', this.state);
+    //     });
+    // }
+
     increaseQuantity = () => {
-        console.log('this', this.state);
+        // console.log('this', this.state);
+        // setState form-1
+        // this.setState({
+        //     qty: this.state.qty+1
+        // });
+
+        // setstate form-2 using previous state
+        this.setState((prevState) => {
+            return {qty: this.state.qty + 1}
+        },() => {
+            console.log('this.state', this.state);
+        });
     }
+
+    decreaseQuantity = () => {
+        // check for if qty is 0
+        const{qty} = this.state;
+        if(qty===0){
+            return;
+        }
+        this.setState((prevState) => {
+            return {qty: this.state.qty - 1}
+        });
+    }
+
     render(){
         const{ item, price, qty}=this.state;
         return(
@@ -28,7 +71,7 @@ class CartItem extends React.Component{
                     <div className="cart-item-actions">
                         {/* actions */}
                         <img alt="increse" className="action-icons" src="https://image.flaticon.com/icons/svg/1828/1828817.svg" onClick={this.increaseQuantity }></img>
-                        <img alt="decrese" className="action-icons" src="https://image.flaticon.com/icons/svg/992/992514.svg"></img>
+                        <img alt="decrese" className="action-icons" src="https://image.flaticon.com/icons/svg/992/992514.svg" onClick={this.decreaseQuantity }></img>
                         <img alt="delete" className="action-icons" src="https://image.flaticon.com/icons/svg/1345/1345874.svg"></img>
                     </div>
                 </div>
