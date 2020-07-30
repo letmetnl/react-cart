@@ -1,7 +1,6 @@
 import React from 'react';
-class CartItem extends React.Component{
-    
-
+// class CartItem extends React.Component{
+    // render(){
     // testing () {
     //     const promise = new Promise((resolve, reject) => {
     //         setTimeout(() => {
@@ -45,21 +44,23 @@ class CartItem extends React.Component{
     //     });
     // }
 
-    render(){
-        console.log('this.props', this.props);
-        const{ item, price, qty}=this.props.product;
-        const{ product, onIncreaseQuantity, onDecreaseQuantity, onDeleteProduct }=this.props;
+    const CartItem = (props) => {
+    
+        console.log('this.props', props);
+        const{ item, price, qty}=props.product;
+        const{ product, onIncreaseQuantity, onDecreaseQuantity, onDeleteProduct }= props;
         return(
             <div className="cart-item">
+                {props.jsx}
                 <div className="left-block">
-                    <img style={styles.image} />
+                    <img style={styles.image} src={product.img} />
                 </div>
                 <div className="right-block">
                     <div style={ {fontSize: 25} }>{item}</div>
                     <div style={ {color: '#777'} }>rs {price}</div>
                     <div style={ {color: 'cyan'} }>Qty {qty}</div>
                     <div className="cart-item-actions">
-                        {/* actions */}
+                        {/* action buttons */}
                         <img alt="increse" className="action-icons" src="https://image.flaticon.com/icons/svg/1828/1828817.svg" 
                         onClick={() => onIncreaseQuantity(product) }></img>
                         <img alt="decrese" className="action-icons" src="https://image.flaticon.com/icons/svg/992/992514.svg" 
@@ -71,7 +72,6 @@ class CartItem extends React.Component{
             </div>
         );
     }
-}
 const styles={
     image: {
         height: 110,
