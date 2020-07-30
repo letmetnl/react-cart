@@ -1,18 +1,6 @@
 import React from 'react';
 class CartItem extends React.Component{
-    constructor () {
-        super();
-        this.state = {
-            item: 'Mobile Phone',
-            price: 999,
-            qty: 1,
-            img: ''
-        }
-        // either this binding here in constructor or we can use arrow functions for default binding
-        // this.increaseQuantity=this.increaseQuantity.bind(this);
-
-        // this.testing();
-    }
+    
 
     // testing () {
     //     const promise = new Promise((resolve, reject) => {
@@ -41,8 +29,8 @@ class CartItem extends React.Component{
         // setstate form-2 using previous state
         this.setState((prevState) => {
             return {qty: this.state.qty + 1}
-        },() => {
-            console.log('this.state', this.state);
+        // },() => {
+        //     console.log('this.state', this.state);
         });
     }
 
@@ -58,16 +46,17 @@ class CartItem extends React.Component{
     }
 
     render(){
-        const{ item, price, qty}=this.state;
+        console.log('this.props', this.props);
+        const{ item, price, qty}=this.props.product;
         return(
             <div className="cart-item">
                 <div className="left-block">
                     <img style={styles.image} />
                 </div>
                 <div className="right-block">
-        <div style={ {fontSize: 25} }>{item}</div>
-        <div style={ {color: '#777'} }>rs {price}</div>
-        <div style={ {color: 'cyan'} }>Qty {qty}</div>
+                    <div style={ {fontSize: 25} }>{item}</div>
+                    <div style={ {color: '#777'} }>rs {price}</div>
+                    <div style={ {color: 'cyan'} }>Qty {qty}</div>
                     <div className="cart-item-actions">
                         {/* actions */}
                         <img alt="increse" className="action-icons" src="https://image.flaticon.com/icons/svg/1828/1828817.svg" onClick={this.increaseQuantity }></img>
