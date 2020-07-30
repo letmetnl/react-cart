@@ -18,36 +18,37 @@ class CartItem extends React.Component{
     //         console.log('state', this.state);
     //     });
     // }
+// handling increase and decrease in quantity via state
+    // increaseQuantity = () => {
+    //     // console.log('this', this.state);
+    //     // setState form-1
+    //     // this.setState({
+    //     //     qty: this.state.qty+1
+    //     // });
 
-    increaseQuantity = () => {
-        // console.log('this', this.state);
-        // setState form-1
-        // this.setState({
-        //     qty: this.state.qty+1
-        // });
+    //     // setstate form-2 using previous state
+    //     this.setState((prevState) => {
+    //         return {qty: this.state.qty + 1}
+    //     // },() => {
+    //     //     console.log('this.state', this.state);
+    //     });
+    // }
 
-        // setstate form-2 using previous state
-        this.setState((prevState) => {
-            return {qty: this.state.qty + 1}
-        // },() => {
-        //     console.log('this.state', this.state);
-        });
-    }
-
-    decreaseQuantity = () => {
-        // check for if qty is 0
-        const{qty} = this.state;
-        if(qty===0){
-            return;
-        }
-        this.setState((prevState) => {
-            return {qty: this.state.qty - 1}
-        });
-    }
+    // decreaseQuantity = () => {
+    //     // check for if qty is 0
+    //     const{qty} = this.state;
+    //     if(qty===0){
+    //         return;
+    //     }
+    //     this.setState((prevState) => {
+    //         return {qty: this.state.qty - 1}
+    //     });
+    // }
 
     render(){
         console.log('this.props', this.props);
         const{ item, price, qty}=this.props.product;
+        const{ product, onIncreaseQuantity, onDecreaseQuantity, onDeleteProduct }=this.props;
         return(
             <div className="cart-item">
                 <div className="left-block">
@@ -59,9 +60,12 @@ class CartItem extends React.Component{
                     <div style={ {color: 'cyan'} }>Qty {qty}</div>
                     <div className="cart-item-actions">
                         {/* actions */}
-                        <img alt="increse" className="action-icons" src="https://image.flaticon.com/icons/svg/1828/1828817.svg" onClick={this.increaseQuantity }></img>
-                        <img alt="decrese" className="action-icons" src="https://image.flaticon.com/icons/svg/992/992514.svg" onClick={this.decreaseQuantity }></img>
-                        <img alt="delete" className="action-icons" src="https://image.flaticon.com/icons/svg/1345/1345874.svg"></img>
+                        <img alt="increse" className="action-icons" src="https://image.flaticon.com/icons/svg/1828/1828817.svg" 
+                        onClick={() => onIncreaseQuantity(product) }></img>
+                        <img alt="decrese" className="action-icons" src="https://image.flaticon.com/icons/svg/992/992514.svg" 
+                        onClick={() => onDecreaseQuantity(product) }></img>
+                        <img alt="delete" className="action-icons" src="https://image.flaticon.com/icons/svg/1345/1345874.svg"
+                        onClick={() => onDeleteProduct(product.id)}></img>
                     </div>
                 </div>
             </div>
