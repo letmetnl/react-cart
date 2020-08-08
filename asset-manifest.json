@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-cart/static/css/main.07d1766a.chunk.css",
+    "main.js": "/react-cart/static/js/main.1ad68b8a.chunk.js",
+    "main.js.map": "/react-cart/static/js/main.1ad68b8a.chunk.js.map",
+    "runtime-main.js": "/react-cart/static/js/runtime-main.7bb402ca.js",
+    "runtime-main.js.map": "/react-cart/static/js/runtime-main.7bb402ca.js.map",
+    "static/js/2.de39d74d.chunk.js": "/react-cart/static/js/2.de39d74d.chunk.js",
+    "static/js/2.de39d74d.chunk.js.map": "/react-cart/static/js/2.de39d74d.chunk.js.map",
+    "index.html": "/react-cart/index.html",
+    "precache-manifest.afd8ee603251143fd1d9b9034a033c31.js": "/react-cart/precache-manifest.afd8ee603251143fd1d9b9034a033c31.js",
+    "service-worker.js": "/react-cart/service-worker.js",
+    "static/css/main.07d1766a.chunk.css.map": "/react-cart/static/css/main.07d1766a.chunk.css.map",
+    "static/js/2.de39d74d.chunk.js.LICENSE.txt": "/react-cart/static/js/2.de39d74d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7bb402ca.js",
+    "static/js/2.de39d74d.chunk.js",
+    "static/css/main.07d1766a.chunk.css",
+    "static/js/main.1ad68b8a.chunk.js"
+  ]
+}
